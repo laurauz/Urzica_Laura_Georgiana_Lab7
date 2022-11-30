@@ -22,7 +22,8 @@
                 HorizontalOptions="Center" />
 
             <Label
-                Text="Welcome to my Drawing App! :) "
+                Text="Welcome to my Drawing App! :)
+                After finishing these courses, you will be able of creating great artworks! "
                 SemanticProperties.HeadingLevel="Level2"
                 SemanticProperties.Description="Welcome to my Drawing App! :) "
                 FontSize="18"
