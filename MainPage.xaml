@@ -10,21 +10,21 @@
             VerticalOptions="Center">
 
             <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                Source="art_studio.jpg"
+                SemanticProperties.Description="Art Studio Logo!"
                 HeightRequest="200"
                 HorizontalOptions="Center" />
 
             <Label
-                Text="Hello, World!"
+                Text="Hello, Laura!!!"
                 SemanticProperties.HeadingLevel="Level1"
                 FontSize="32"
                 HorizontalOptions="Center" />
 
             <Label
-                Text="Welcome to .NET Multi-platform App UI"
+                Text="Welcome to my Drawing App! :) "
                 SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
+                SemanticProperties.Description="Welcome to my Drawing App! :) "
                 FontSize="18"
                 HorizontalOptions="Center" />
 
