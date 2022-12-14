@@ -3,11 +3,27 @@ namespace Urzica_Laura_Georgiana_Lab7;
 
 public partial class ListPage : ContentPage
 {
-	public ListPage()
-	{
-		InitializeComponent();
-	}
+    public ListPage()
+    {
+        InitializeComponent();
+    }
 
+    async void OnDeleteItemButtonClicked(object sender, EventArgs e)
+    {
+        Product product;
+        var shopList = (ShopList)BindingContext;
+        if (listView.SelectedItem != null)
+        {
+            product = listView.SelectedItem as Product;
+
+            var listProductAll = await App.Database.GetListProducts();
+            var listProduct = listProductAll.FindAll(x => x.ProductID == product.ID & x.ShopListID == shopList.ID);
+
+            await App.Database.DeleteListProductAsync(listProduct.FirstOrDefault());
+            await Navigation.PopAsync();
+
+        }
+    }
     async void OnSaveButtonClicked(object sender, EventArgs e)
     {
         var slist = (ShopList)BindingContext;
@@ -21,4 +37,22 @@ public partial class ListPage : ContentPage
         await App.Database.DeleteShopListAsync(slist);
         await Navigation.PopAsync();
     }
+    async void OnChooseButtonClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new ProductPage((ShopList)
+       this.BindingContext)
+        {
+            BindingContext = new Product()
+        });
+
+    }
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+        var shopl = (ShopList)BindingContext;
+
+        listView.ItemsSource = await App.Database.GetListProductsAsync(shopl.ID);
+    }
+
+
 }
