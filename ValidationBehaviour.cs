@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Urzica_Laura_Georgiana_Lab7
 {
-    class ValidationBehaviour
-         {
+    internal class ValidationBehaviour : Behavior<Editor>
+    {
         protected override void OnAttachedTo(Editor entry)
         {
             entry.TextChanged += OnEntryTextChanged;
